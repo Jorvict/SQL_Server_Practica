@@ -36,3 +36,23 @@
 -- además de contar con respaldos de la DB y adicionalmente realizar dichas gestiones
 -- desde T-SQL, para que en caso de generar una incidencia poder revertir la operación
 
+-- ========== Creando una tabla desde T-SQL ==========
+-- Recordar que para establecer una PRIMARY KEY se establece luego de definir las
+-- columnas, ademas recordar que si la PRIMARY KEY será IDENTITY, se debe definir
+-- al momento de establecer el tipo de dato de la columna PRIMARY KEY siguiendo
+-- la siguiente estructura "pkColumna INT IDENTITY (1,1) donde el primer valor es
+-- el seed (número en el que inicia al contar el identity) y el segundo valor es
+-- el increment (la cantidad de números que incrementará por cada registro)
+
+-- ========== Primary key compuesta ==========
+-- En algunas tablas pueden tener como caracteristica que una primary key sea 
+-- compuesta por varias columnas, ello no significa que tenga varias primary keys,
+-- ya que las primary key son unicas, lo que significa es que la primary key esta 
+-- formada por varios campos y no unicamente por un unico campo
+
+
+-- ===== ¿Porqué en una tabla de relación no se establece la propiedad IDENTITY? =====
+-- Principalmente es debido a que en una tabla de relación lo que se realiza es
+-- registrar datos que ya existen en otras tablas, no estamos creando registros nuevos, 
+-- sino que son datos que están relacionados a otras tablas y tienen que existir en su
+-- respectiva tabla
