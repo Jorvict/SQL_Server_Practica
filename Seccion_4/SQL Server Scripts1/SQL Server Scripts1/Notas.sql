@@ -50,9 +50,27 @@
 -- ya que las primary key son unicas, lo que significa es que la primary key esta 
 -- formada por varios campos y no unicamente por un unico campo
 
-
 -- ===== ¿Porqué en una tabla de relación no se establece la propiedad IDENTITY? =====
 -- Principalmente es debido a que en una tabla de relación lo que se realiza es
 -- registrar datos que ya existen en otras tablas, no estamos creando registros nuevos, 
 -- sino que son datos que están relacionados a otras tablas y tienen que existir en su
 -- respectiva tabla
+
+-- ========== Definiendo tipos de datos de usuario ==========
+-- Cuando existen muchas tablas donde se almacena el mismo dato (y su respectivo tipo)
+-- existe la posibilidad de que alguna de las tablas registremos incorrectamente el
+-- tipo de dato lo cual ocasionará incidencia al momento de establecer la relación
+-- entre tablas, para solucionar ello lo que se puede realizar es "crear" un tipo
+-- de dato que estará vinculado al tipo de dato correspondiente a la columna, por 
+-- ejemplo, si en varias tablas tenemos el dato "idPaciente" que es un INT, para
+-- evitar que en otra tabla se confunda con un TINYINT o BIGINT lo que se realiza
+-- es crear un tipo de dato (tambien llamado TYPES) con el tipo de dato INT y con
+-- un identificador relacionado a idPaciente para su fácil identificación, esto ayudará
+-- a reducir el margen de error al especificar el tipo de dato en cada tabla, además
+-- también ayuda en que si es necesario modificar el tipo de dato ya no se tendría
+-- que modificar tabla por tabla sino que modificamos el tipo de dato en el TYPE y
+-- el cambio se aplicará automáticamente a todas las tablas donde se este usando 
+-- dicho TYPE (algo similar a modificar el master page de un header/footer)
+-- Código para crear un TYPE: CREATE TYPE (nombre) FROM INT NOT NULL
+-- Los TYPES se pueden localizar en la ruta: 
+-- BD -> Programmability -> Types -> User-Defined Data Types

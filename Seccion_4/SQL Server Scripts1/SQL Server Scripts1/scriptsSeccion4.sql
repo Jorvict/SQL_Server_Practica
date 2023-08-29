@@ -83,3 +83,16 @@ CREATE TABLE MedicoEspecialidad (
 
 		PRIMARY KEY(idMedico, idEspecialidad)
 )
+
+CREATE TABLE Concepto(
+		idConcepto		TINYINT IDENTITY(1,1)		NOT NULL PRIMARY KEY,
+		descripcion		VARCHAR(100)
+);
+
+CREATE TYPE medico FROM INT NOT NULL
+
+CREATE TYPE turno FROM INT NOT NULL
+
+CREATE TYPE historia FROM INT NOT NULL
+
+CREATE TYPE observacion FROM VARCHAR(1000) NULL
